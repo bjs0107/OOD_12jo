@@ -1,0 +1,13 @@
+1	load	4
+2	efhk	3
+3	aaa	2
+4	inner	2
+5	asef	1
+6	reewe	1
+7	qwrqwe	1
+8	asdwe	1
+9	ef	1
+10	asfwer	1
+11	qwe	1
+12	aejof	1
+13	eifii	1
