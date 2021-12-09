@@ -13,7 +13,7 @@ int gotoxy(int x, int y);
 
 
 
-void main()
+int main()
 {
 	StartSetting();
 
@@ -53,6 +53,7 @@ void main()
 		cout << "재시작을 원하면, 아무키나 입력하세요..." << endl;
 		getch();
 	}
+	return 0;
 }
 
 void StartSetting() {
@@ -138,13 +139,9 @@ bool Testing2()
 	}
 	return false;
 }
-
-int gotoxy(int x, int y)
-{
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD pos;
-	pos.X = x;
-	pos.Y = y;
-	SetConsoleCursorPosition(hConsole, pos);
-	return 0;
+int gotoxy(int x, int y){
+  initscr();
+   move(x, y);
+   endwin();
+   return 0;
 }

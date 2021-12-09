@@ -1,8 +1,11 @@
+#ifndef _board_
+#define _board_
 #include <iostream>
 #include <cstring>
 #include <string>
-#include <conio.h>
-#include <windows.h>
+#include <curses.h>
+#include <term.h>
+//#include <windows.h>
 #include <time.h>
 #include <iomanip>
 #include <fstream>
@@ -14,6 +17,21 @@
 #define Player2 2
 #define NONE 0
 
+#ifndef KEY_LEFT
+#define KEY_LEFT 0x25
+#endif
+#ifndef KEY_RIGHT
+#define KEY_RIGHT 0x27
+#endif
+#ifndef KEY_UP
+#define KEY_UP 0x26
+#endif
+#ifndef KEY_DOWN
+#define KEY_DOWN 0x28
+#endif
+#ifndef KEY_SPACE
+#define KEY_SPACE 0x20
+#endif
 using namespace std;
 
 // 전역변수
@@ -23,12 +41,15 @@ extern string up;			// 수정) bord의  윗 틀 문자열. string형으로 변경했습니다.
 extern string middle;		// 수정) bord의 중간틀 문자열. string형으로 변경했습니다.
 extern string down;			// 수정) bord의 아래틀 문자열. string형으로 변경했습니다.
 
+
+/*
 // 키보드 입력검사를 위한 ASCII값.
-const int KEY_LEFT = 75;
-const int KEY_RIGHT = 77;
-const int KEY_UP = 72;
-const int KEY_DOWN = 80;
-const int KEY_SPACE = 32;
+const int KEY_LEFT = 0x25;
+const int KEY_RIGHT = 0x27;
+const int KEY_UP = 0x26;
+const int KEY_DOWN = 0x28;
+const int KEY_SPACE = 0x20;
+*/
 
 //함수 정의
 class board
@@ -73,3 +94,4 @@ private:
 	int turn;				// 현재 차례. (흑돌=1, 백돌=2)
 	int circle[50][50];	// ○●를 표시하는 2차원 배열. 보드판의 최댓값으로 정의합니다.
 };
+#endif
