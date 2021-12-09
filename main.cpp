@@ -1,9 +1,12 @@
 #include "board.h"
 
+using namespace std;
+
 board Game;
 board test1;
 board test2;
-void EndResult();
+void StartSetting();		// 게임 시작 전 기본정보를 입력받는 함수.
+void EndResult();			
 bool Testing1();
 bool Testing2();
 int gotoxy(int x, int y);
@@ -12,21 +15,7 @@ int gotoxy(int x, int y);
 
 void main()
 {
-	
-	cout << "# 오델로 프로그램을 시작합니다." << endl;
-	cout << "--------------------------------------------" << endl;
-	cout << "# 보드판 사이즈를 입력해주세요: " << endl;
-	int size;
-	cin >>  size;
-	if (size < 4 || (size % 2) == 1) {
-		cout << "# 잘못된 사이즈 입력입니다. 기본값 8로 설정합니다." << endl;
-		size = 8;
-	}
-	// 흑돌 = player1
-	// 백돌 = player2
-	cout << "--------------------------------------------" << endl;
-	cout << "# 사이즈 "<< size << " 로 게임을 시작합니다. Enter를 눌러주세요." << endl;
-	
+	StartSetting();
 
 	while(1)
 	{
@@ -61,31 +50,53 @@ void main()
 
 		EndResult();
 
-		cout << "If you want replay, Press any key..." << endl;
+		cout << "재시작을 원하면, 아무키나 입력하세요..." << endl;
 		getch();
 	}
+}
+
+void StartSetting() {
+	int sizeInput;			// 보드판의 사이즈 입력.
+
+	cout << "--------------------------------------------" << endl;
+	cout << "# 오델로 프로그램을 시작합니다." << endl;
+	cout << "# 보드판 사이즈를 입력해주세요: " << endl;
+	cin >> sizeInput;
+
+	// 보드판의 size는 항상 4이상이며, 짝수이어야만 합니다.
+	if (sizeInput < 4 || (sizeInput % 2) == 1) {
+		cout << "# 사이즈 " << sizeInput << " (은)는 잘못된 입력입니다.기본값 8로 설정합니다." << endl;
+		sizeInput = 8;
+	}
+	// 사이즈 입력 후 bord.h에 sizeinput을 전송합니다.
+	Game.setSize(sizeInput);
+	Game.setUpTable(sizeInput);
+	Game.setMiddleTable(sizeInput);
+	Game.setDownTable(sizeInput);
+	cout << "# 사이즈 " << sizeInput << " (으)로 게임을 시작합니다. 아무 키나 입력하세요..." << endl;
+	getch();
 }
 
 void EndResult()
 {	
 	gotoxy(0,20);
-	cout << "Player1 is " << stone1 << "  Player2 is " << stone2 << endl;
+	cout << "흑돌(Player1) = " << stone1 << "   백돌(Player2) = " << stone2 << endl;
 
 	if(stone1 > stone2)
-		cout << "Player1 is winner" << endl;
+		cout << "흑돌(Player1) 이 승리했습니다!" << endl;
 	else if(stone1 == stone2)
-		cout << "Game is Draw" << endl;
+		cout << "비겼습니다!" << endl;
 	else
-		cout << "Player2 is winner" << endl;
+		cout << "백돌(Player2) 이 승리했습니다!" << endl;
 }
 bool Testing1()
 {
 	int i = 0 ,j = 0;
 	test1 = Game;
 
-	for(i = 0; i< 8 ; i++)
+	for(i = 0; i< test1.getSize(); i++)
 	{
-		for(j = 0; j < 8 ; j++)
+		for(j = 0; j < test1.getSize(); j++)
 		{
 			if(test1.getCircle(j,i) == NONE)
 			{
@@ -108,9 +119,9 @@ bool Testing2()
 	int i = 0 ,j = 0;
 	test2 = Game;
 
-	for(i = 0; i< 8 ; i++)
+	for(i = 0; i< test2.getSize(); i++)
 	{
-		for(j = 0; j < 8 ; j++)
+		for(j = 0; j < test2.getSize(); j++)
 		{
 			if(test2.getCircle(j,i) == NONE)
 			{
