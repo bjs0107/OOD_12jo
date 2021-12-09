@@ -1,0 +1,8 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(39,5): warning MSB4211: "IntermediateOutputPath" 속성에 처음으로 값이 설정되고 있지만 이미 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(38,5)"에서 사용되었습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets(29,5): warning MSB4211: "DebugType" 속성에 처음으로 값이 설정되고 있지만 이미 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets(28,5)"에서 사용되었습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(370,5): warning MSB4211: "CleanFile" 속성에 처음으로 값이 설정되고 있지만 이미 "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(38,5)"에서 사용되었습니다.
+cl : 명령줄 warning D9035: 'Gm' 옵션은 더 이상 사용되지 않으므로 이후 릴리스에서 제거될 예정입니다.
+  main.cpp
+C:\Users\limhyeonseo\Desktop\객체지향 프로젝트 cpp 오델로 게임\객체지향 오델로\board.h(204,13): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+C:\Users\limhyeonseo\Desktop\객체지향 프로젝트 cpp 오델로 게임\객체지향 오델로\main.cpp(64,3): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  객체플젝(클래스2).vcxproj -> C:\Users\limhyeonseo\Desktop\객체지향 프로젝트 cpp 오델로 게임\객체지향 오델로\Debug\객체플젝(클래스2).exe
