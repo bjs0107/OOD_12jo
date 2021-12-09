@@ -1,9 +1,11 @@
+#define _CRT_NONSTDC_NO_WARNINGS
 #include <iostream>
 #include <cstring>
 #include <string>
-#include <conio.h>
-#include <windows.h>
+#include <curses.h>
+// #include <windows.h>
 #include <time.h>
+#include <term.h>
 #include <iomanip>
 #include <fstream>
 
@@ -201,14 +203,15 @@ void board::printScreen()
 
 void board::control()
 {
-	char command;
+	int command;
 	int Loof = 2;
-
+	
 	SetCursorShow();
 	gotoxy(2 + 4 * x, 1 + 2 * y);
 	while (Loof)
 	{
 		command = getch();
+		printScreen();
 		switch (command)
 		{
 		case KEY_LEFT:
@@ -270,24 +273,17 @@ void board::control()
 
 int board::gotoxy(int x, int y)
 {
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD pos;
-	pos.X = x;
-	pos.Y = y;
-	SetConsoleCursorPosition(hConsole, pos);
-	return 0;
+   // initscr();
+   move(x, y);
+   //endwin();
+   return 0;	
 }
 
 void board::SetCursorShow()
 {
-	CONSOLE_CURSOR_INFO ci;
-	HANDLE hConsole;
-	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-	GetConsoleCursorInfo(hConsole, &ci);
-	ci.dwSize = 100;
-	ci.bVisible = TRUE;
-	SetConsoleCursorInfo(hConsole, &ci);
+  //initscr();
+  curs_set(2);
+  //endwin();
 }
 
 
